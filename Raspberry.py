@@ -72,6 +72,14 @@ try:
     co_level_label = tk.Label(root, text="CO Level: 0", font=("Arial", 16))
     co_level_label.pack(pady=10)
 
-   
+    fan_status_label = tk.Label(root, text="Fan Status: Off", font=("Arial", 16))
+    fan_status_label.pack(pady=10)
 
+    update_gui()
 
+    root.mainloop()
+
+except KeyboardInterrupt:
+    GPIO.cleanup()
+    client.loop_stop()
+    restart_program()
